@@ -8,7 +8,8 @@ def StringGeneration (input_string = "ABCD")
   puts potential_letters
   output_array = []
   potential_letters.each {output_array << potential_letters[rand(potential_letters.length)]}
-  return output_array.to_s
+  return output_array
 end
+
 
 puts StringGeneration("abcd")
