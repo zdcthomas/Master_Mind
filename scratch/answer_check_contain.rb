@@ -1,4 +1,4 @@
-answer = ["r","b","r","b"]
+answer = ["r","b","r","b"]≤
 guess = ["r","r","r","r"]
 require 'pry'
 
@@ -60,6 +60,20 @@ require 'pry'
 # end
 #
 # puts letter_check(answer,guess)
+
+
+def check_correctness(guess,answer)
+  correct_letters = 0
+  guess_new = guess
+  answer.map do |answer_letter|
+    if guess_new.include?(answer_letter)
+      correct_letters += 1
+      guess_new[guess_new.index(answer_letter)] = nil
+    end
+  end
+  return correct_letters
+end
+
 
 
 def check_correctness(guess,answer)
