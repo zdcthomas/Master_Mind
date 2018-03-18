@@ -12,19 +12,23 @@ module UserMessages
   def self.beginner_game_screen
     puts "I have generated a beginner sequence with 4 colors and positions made up of:\n"
     puts "\n(r)ed \n(g)reen\n(b)lue\n(y)ellow\n\nUse (q)uit at any time to end the game."
-    puts "What's your guess?"
+    # puts "What's your guess?"
   end
 
   def self.intermediate_game_screen
     puts "I have generated an intermediate sequence with 5 colors and 6 positions made up of:"
     puts "\n(r)ed\n(g)reen\n(b)lue\n(y)ellow\n(p)urple\n\nUse (q)uit at any time to end the game."
-    puts "What's your guess?"
+    # puts "What's your guess?"
   end
   def self.hard_game_screen
     puts "I have generated a hard sequence with 6 colors and 8 positions made up of:"
     puts "\n(r)ed\n(g)reen\n(b)lue\n(y)ellow\n(p)urple\n(o)range\n\nUse (q)uit at any time to end the game."
-    puts "What's your guess?"
+    # puts "What's your guess?"
   end
+
+  def self.win_message
+    puts "CONGRATULATIONS!"
+  end 
 
 
   # expects user guess to be a string, and correct_elements, correct_positions, and number_of_guesses to be int

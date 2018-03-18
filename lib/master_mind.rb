@@ -1,19 +1,26 @@
 # The mastermind class is only passed a string input which determines dificulty
+require 'pry'
 class MasterMind
 
   attr_reader :answer
 
-  def initialize(difficulty)
+  def initialize(seed_letters)
+
+    output_array = []
+    seed_letters.each do
+      output_array << seed_letters[rand(seed_letters.length)]
+    end
+
+    @answer = output_array
     @start_time = Time.now
-    @difficulty = difficulty
-    # @answer = self.answer_generation
+    @previous_guesses = []
   end
 
   # Checks how many letters are correct in the guess
   # returns an integer
   def check_correctness(guess, answer = @answer)
     correct_letters = 0
-    guess_new = guess.dup
+    guess_new = guess.split("").dup
     answer.map do |answer_letter|
       if guess_new.include?(answer_letter)
         correct_letters += 1
@@ -23,17 +30,27 @@ class MasterMind
     return correct_letters
   end
 
+
+  def guess_tracker(guess)
+    if guess == nil
+      @previous_guesses
+    else
+      most_recent_guess = [guess, "#{check_correctness(guess)} elements", "#{check_position(guess)} positions"]
+      @previous_guesses << most_recent_guess
+    end
+  end
+
   # Takes in a string and rearanges elements of the string
   # randomly, and outputs and array
-  difficulty = @difficulty
-  def answer_generation (difficulty)
-    potential_letters = input_string.split("")
-    output_array = []
-    potential_letters.each do
-      output_array << potential_letters[rand(potential_letters.length)]
-    end
-    return output_array
-  end
+  # difficulty = @difficulty
+  # def answer_generation (difficulty)
+    # potential_letters = input_string.split("")
+    # output_array = []
+    # potential_letters.each do
+    #   output_array << potential_letters[rand(potential_letters.length)]
+    # end
+    # return output_array
+  # end
 
 
   # Checks how many letters are in their correct positions
@@ -41,7 +58,7 @@ class MasterMind
   def check_position(guess, answer = @answer)
     correct_positions = 0
     answer_new = answer.dup
-    guess_new = guess.dup
+    guess_new = guess.split("").dup
     answer.length.times do |num|
       if answer_new.pop == guess_new.pop
         correct_positions += 1
