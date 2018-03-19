@@ -2,10 +2,12 @@
 require 'pry'
 class MasterMind
 
-  attr_reader :answer
+  attr_reader :answer,
+              :previous_guesses
 
   def initialize(seed_letters)
 
+    # generates randomized answer from seed array
     output_array = []
     seed_letters.each do
       output_array << seed_letters[rand(seed_letters.length)]
@@ -31,11 +33,10 @@ class MasterMind
   end
 
 
-  def guess_tracker(guess)
+  def guess_tracker(guess = nil)
     if guess == nil
-      @previous_guesses
     else
-      most_recent_guess = [guess, "#{check_correctness(guess)} elements", "#{check_position(guess)} positions"]
+      most_recent_guess = [guess, "#{check_correctness(guess)} correct element(s)", "#{check_position(guess)} correct position(s)"]
       @previous_guesses << most_recent_guess
     end
   end
@@ -68,17 +69,21 @@ class MasterMind
   end
 
   # Reports the elapsed time in hours minutes and seconds
-  def end_timer_and_report_elapsed
+  def end_timer_and_report_elapsed(s = nil)
     end_time = Time.now
     elapsed_time = end_time - @start_time
-    hours_elapsed = elapsed_time / 3600
-    minutes_elapsed = elapsed_time / 60
-    seconds_elapsed = elapsed_time % 60
-    if hours_elapsed.to_i < 1
-       time_report = "#{minutes_elapsed.to_i} minutes, and #{seconds_elapsed.to_i} seconds"
-    else
-        time_report ="#{hours_elapsed.to_i} hours, #{minutes_elapsed.to_i} minutes, and #{seconds_elapsed.to_i} seconds"
-    end
+    if s == nil
+      hours_elapsed = elapsed_time / 3600
+      minutes_elapsed = elapsed_time / 60
+      seconds_elapsed = elapsed_time % 60
+      if hours_elapsed.to_i < 1
+         puts "#{minutes_elapsed.to_i} minutes, and #{seconds_elapsed.to_i} seconds"
+      else
+          puts "#{hours_elapsed.to_i} hours, #{minutes_elapsed.to_i} minutes, and #{seconds_elapsed.to_i} seconds"
+      end
+    elsif s == "s"
+      return elapsed_time
+    end 
   end
 
 

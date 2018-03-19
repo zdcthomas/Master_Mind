@@ -6,7 +6,7 @@ module UserMessages
 
   def self.home_screen
     puts "Welcome to MASTERMIND"
-    puts "\nWould you like to (p)lay\nread the (i)nstructions\nor (q)uit?"
+    puts "\nWould you like to (p)lay\nread the (i)nstructions\nview the current (h)igh score holders\nor (q)uit?"
   end
 
   def self.beginner_game_screen
@@ -28,7 +28,7 @@ module UserMessages
 
   def self.win_message
     puts "CONGRATULATIONS!"
-  end 
+  end
 
 
   # expects user guess to be a string, and correct_elements, correct_positions, and number_of_guesses to be int
