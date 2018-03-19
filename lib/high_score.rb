@@ -23,13 +23,13 @@ module HighScores
     # I can maintain the play order within the csv file. I might get rid of that though, mostly
     # because it's an extra step
     unless contenders == nil
-      leader_board = contenders.sort {|a,b| b[1[1]] <=> a[1[1]]}
+      leader_board = contenders.sort! {|a,b| a[2].to_i * a[1].to_i <=> b[1].to_i * b[2].to_i}
     end
 
   end
 
   def self.display_top_ten
-    top_ten = high_score[0..10]
+    top_ten = high_score[0...10]
     top_ten.each_with_index do |contestant,index|
       hours_elapsed = contestant[2].to_i / 3600
       minutes_elapsed = contestant[2].to_i / 60
