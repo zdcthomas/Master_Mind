@@ -29,8 +29,14 @@ module UserMessages
 
   def self.win_message
     puts "CONGRATULATIONS!"
-    
+
   end
+
+  def self.custom_difficulty_screen
+    puts "Please enter the colors you would like to be included."
+    puts "The number of colors you enter will also be the number of positions in the sequence."
+    puts "You can also (s)top adding colors or reuturn to the (m)ain menu.\n"
+  end 
 
 
   # expects user guess to be a string, and correct_elements, correct_positions, and number_of_guesses to be int

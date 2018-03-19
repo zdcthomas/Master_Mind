@@ -41,19 +41,6 @@ class MasterMind
     end
   end
 
-  # Takes in a string and rearanges elements of the string
-  # randomly, and outputs and array
-  # difficulty = @difficulty
-  # def answer_generation (difficulty)
-    # potential_letters = input_string.split("")
-    # output_array = []
-    # potential_letters.each do
-    #   output_array << potential_letters[rand(potential_letters.length)]
-    # end
-    # return output_array
-  # end
-
-
   # Checks how many letters are in their correct positions
   # returns an integer
   def check_position(guess, answer = @answer)
