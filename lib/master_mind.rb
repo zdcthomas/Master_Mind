@@ -1,4 +1,4 @@
-# The mastermind class is only passed a string input which determines dificulty
+# The mastermind class is only passed a string input which determines dificulty and content
 require 'pry'
 class MasterMind
 
@@ -83,7 +83,7 @@ class MasterMind
       end
     elsif s == "s"
       return elapsed_time
-    end 
+    end
   end
 
 

@@ -7,6 +7,7 @@ module UserMessages
   def self.home_screen
     puts "Welcome to MASTERMIND"
     puts "\nWould you like to (p)lay\nread the (i)nstructions\nview the current (h)igh score holders\nor (q)uit?"
+
   end
 
   def self.beginner_game_screen
@@ -28,6 +29,7 @@ module UserMessages
 
   def self.win_message
     puts "CONGRATULATIONS!"
+    
   end
 
 
