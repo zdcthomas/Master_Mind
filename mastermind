@@ -170,6 +170,7 @@ def invalid_input
   UserMessages.clear_screen
   puts "Invalid input. \nPress enter to return to the previous screen."
   gets
+end
 
 def difficulty_select
   UserMessages.clear_screen
@@ -286,6 +287,5 @@ def main_loop
     invalid_input
   end
 end
-
 
 main_loop

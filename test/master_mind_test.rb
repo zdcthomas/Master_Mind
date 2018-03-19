@@ -22,6 +22,7 @@ class MasterMindTest < MiniTest::Test
 
   def test_number_of_correct_answers
     assert_equal 4 , @game4.check_correctness(@rstring , @r)
+    assert_equal
   end
 
   def test_number_of_correct_positions
